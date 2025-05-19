@@ -1,0 +1,63 @@
+---
+import Container from "./Container.astro";
+import SolucionesCard from "./SolucionesCard.astro";
+import blinker from "@/styles/blinker.module.css";
+
+import { type Soluciones } from "@/types/soluciones";
+
+const solucionesData: Soluciones[] = [
+    {
+        titulo: "Consultoría en Administración",
+        descripcion: "",
+    },
+    {
+        titulo: "Contabilidad General",
+        descripcion: "",
+    },
+    {
+        titulo: "Auditoríá",
+        descripcion: "",
+    },
+    {
+        titulo: "Capacitación",
+        descripcion: "",
+    },
+    {
+        titulo: "Impuestos",
+        descripcion: "",
+    },
+    {
+        titulo: "Asesoría Contable y Fiscal",
+        descripcion: "",
+    },
+    {
+        titulo: "Servicios de Cobranza",
+        descripcion: "",
+    },
+    {
+        titulo: "Ley de Acrchivo",
+        descripcion: "",
+    },
+];
+---
+
+    <Container idSection="#Nosotros">
+        <div class="px-10 py-20">
+            <h1
+            class={`${blinker.semibold} mb-5 text-3xl lg:text-7xl text-center text-white`}
+        >
+            Nuestras soluciones
+        </h1>
+        <p class={`${blinker.regular} text-white text-2xl text-center mb-10`}>
+            Te ofrecemos soluciones integrales adapstadas a las necesidades de
+            tu empresa o negocio
+        </p>
+        <div class="grid grid-cols-4 gap-5">
+            {
+                solucionesData.map(({ titulo, descripcion }) => (
+                    <SolucionesCard titulo={titulo} descripcion={descripcion} />
+                ))
+            }
+        </div>
+        </div>
+    </Container>

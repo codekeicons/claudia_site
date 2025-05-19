@@ -1,0 +1,15 @@
+---
+import Container from "./Container.astro";
+import blinker from "@/styles/blinker.module.css";
+import { ScrollContainer } from "@/components/ScrollContainer";
+---
+
+<Container idSection="#Equipo">
+    <div class="px-10 py-20">
+         <h1 class={`text-7xl ${blinker.semibold} text-center text-white`}>
+            Nuestro equipo de trabajo
+        </h1>
+
+        <ScrollContainer client:load />
+    </div>
+</Container>

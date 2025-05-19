@@ -1,0 +1,26 @@
+---
+import blinker from "@/styles/blinker.module.css"
+import { string } from "astro:schema"
+import type { AstroComponentFactory } from "astro/runtime/server/index.js"
+
+interface SolucionesCard {
+
+    titulo: string,
+    descripcion: string
+    icon: AstroComponentFactory
+}
+
+
+const {titulo, descripcion, icon} = Astro.props as SolucionesCard
+
+
+
+---
+
+<div class="h-80 bg-black border rounded-2xl border-[#111111] content-center px-10 py-14">
+    <!-- {icon && <div set:html={icon}></div>} -->
+    <h1 class={`text-xl lg:text-[28px] text-white mb-7 ${blinker.semibold}`}>
+        {titulo}
+    </h1>
+    <p class={`text-white text-xl ${blinker.regular}`}>{descripcion}</p>
+</div>

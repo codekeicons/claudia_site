@@ -2,7 +2,7 @@
 
 import librebo from "@/styles/librebo.module.css"
 import ItemNavbar from "./ItemNavbar.astro"
-import { itemNavbar } from "@/interfaces/itemNavbar"
+import {type itemNavbar } from "@/interfaces/itemNavbar"
 import blinker from "@/styles/blinker.module.css"
 
 import Container from "@/components/Container.astro"
@@ -18,13 +18,13 @@ const dataItems: itemNavbar[] = [
 
 <nav class="h-24 fixed w-full z-50">
     <div class="flex w-full items-center justify-between">
-        <div class="w-2/5 bg-[#121212] px-5 flex items-center h-24">
+        <div class="w-2/5 bg-[#0c0b0b] px-5 flex items-center h-24">
             <svg  xmlns="http://www.w3.org/2000/svg"  width="70"  height="70"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler text-white icons-tabler-outline icon-tabler-brand-codesandbox"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M20 7.5v9l-4 2.25l-4 2.25l-4 -2.25l-4 -2.25v-9l4 -2.25l4 -2.25l4 2.25z" /><path d="M12 12l4 -2.25l4 -2.25" /><path d="M12 12l0 9" /><path d="M12 12l-4 -2.25l-4 -2.25" /><path d="M20 12l-4 2v4.75" /><path d="M4 12l4 2l0 4.75" /><path d="M8 5.25l4 2.25l4 -2.25" /></svg>
 
-            <span class={`text-white text-3xl ${librebo.bold}`}">Logo</span>
+            <span class={`text-white text-3xl ${librebo.bold}`}>Logo</span>
 
         </div>
-        <div class="flex justify-between px-10 items-center bg-black/30 backdrop-blur-md w-3/5 h-24">
+        <div class="flex justify-end space-x-10 px-10 items-center bg-black/30 backdrop-blur-md w-3/5 h-24">
             <ul class="flex text-white text-lg items-center space-x-10">
                 {
                     dataItems.map(item => (

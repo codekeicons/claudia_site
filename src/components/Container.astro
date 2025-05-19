@@ -1,6 +1,14 @@
+---
+
+interface ContainerProps {
+
+    idSection: string
+}
+
+const {idSection} = Astro.props as ContainerProps
+---
 
 
-
-<div class="max-w-7xl px-10 py-5 mx-auto ">
+<div class="max-w-7xl  border-2 border-[#111111] mx-auto " id={idSection}>
     <slot/>
 </div>

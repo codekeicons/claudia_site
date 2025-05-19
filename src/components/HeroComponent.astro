@@ -1,0 +1,38 @@
+---
+import blinker from "@/styles/blinker.module.css"
+import libre from "@/styles/librebo.module.css"
+---
+
+
+<section class="h-[100vh]">
+    <div class="flex justify-between items-center">
+        <div class="w-2/5">
+            <div class="max-w-7xl content-center mx-auto px-10">
+                <h1
+                    class={`text-white md:text-6xl 2xl:text-7xl font-bold ${libre.bold}`}
+                >
+                    Soluciones contables <br />
+                    y profesionales <br />
+                    para tu negocio
+                </h1>
+
+                <p
+                    class={`text-white my-10 md:xl 2xl:text-2xl ${blinker.light}`}
+                >
+                    Optimiza y cumple con tus obligaciones fiscales con <br /> nuestro
+                    equipo de expertos contables
+                </p>
+
+                <a
+                    href=""
+                    class={`text-white bg-black ${blinker.regular} px-8 py-3 rounded`}
+                    >Conocer mas
+                </a>
+            </div>
+        </div>
+        <div
+            class="w-3/5 h-[100vh] bg-[url('public/img/bg-hero_.jpg')] bg-cover bg-white"
+        >
+        </div>
+    </div>
+</section>

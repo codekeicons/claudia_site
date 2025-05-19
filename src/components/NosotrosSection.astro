@@ -1,0 +1,40 @@
+---
+import blinker from "@/styles/blinker.module.css"
+import Container from "./Container.astro"
+import Check from "@/icons/Check.astro"
+---
+
+<Container idSection="#Nosotros">
+        <div class="bg-[#0c0b0b] px-10 py-20">
+                    <div class="flex items-center">
+            <div class=" content-center w-1/2">
+                <h1 class={`${blinker.semibold} text-7xl mb-10 text-white`}>¿Quienes somos?</h1>
+                <p class={`${blinker.light}  text-[18px] text-white`}>Somos un despacho orgullosamente regiomontano comprometido y dedicado con cada uno de nuestros clientes con el objetivo de ofrecer servicios de consultoría en: 
+                </p>
+
+                <ul class={`text-white my-10 text-2xl space-y-5 ml-10 ${blinker.semibold}`} >
+                    <li class="flex items-center space-x-3 "> 
+                        <Check/>
+                        <span>Administración</span>
+                    </li>
+                    <li class="flex items-center space-x-3 ">
+                        <Check/>
+                        <span>Auditoría</span>
+                    </li>
+                    <li class="flex items-center space-x-3 ">
+                        <Check/>
+                        <span>Impuestos</span>
+                    </li>
+
+                </ul>
+
+                <p class={`${blinker.light} text-[18px] text-white`}>con una respuesta inmediata a sus necesidades, con  excelente servicio, calidad y reduciendo sus costos operativos contando con herramientas de tecnología de punta, con personal altamente calificado y procesos estándar para el control y administración de su información.</p>
+            </div>
+            <div class="mx-auto rounded-3xl">
+                <img src="img/ciudad.jpg" class="rounded-2xl w-[500px]" alt="">
+            </div>
+        </div>
+        </div>
+</Container>
+
+
