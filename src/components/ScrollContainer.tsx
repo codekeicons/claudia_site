@@ -35,27 +35,27 @@ export const ScrollContainer = () => {
 
     const textSections: TextSection[] = [
         {
-            persona: "Lauren Eve Mayberry",
+            persona: "Persona 1",
             description:
-                "El IDE lo sabe todo acerca de su código y utiliza este conocimiento para ofrecer una navegación rapidísima y sugerencias relevantes en cualquier contexto.",
+                "Detalle de la persona y responsabilidades que lleva a cabo dentro de la empresa",
             source: ''
         },
         {
-            persona: "Desarrollo sin interrupciones",
+            persona: "Persona 2",
             description:
-                "Nuestras herramientas inteligentes anticipan tus necesidades y te permiten concentrarte en lo que realmente importa.",
+                "Detalle de la persona y responsabilidades que lleva a cabo dentro de la empresa",
             source: ''
         },
         {
-            persona: "Colaboración en tiempo real",
+            persona: "Persona 3",
             description:
-                "Trabaja con tu equipo de manera eficiente con funciones de edición colaborativa y comentarios contextuales.",
+                "Detalle de la persona y responsabilidades que lleva a cabo dentro de la empresa",
             source: ''
         },
         {
-            persona: "Optimización automática",
+            persona: "Persona 4",
             description:
-                "Detectamos y sugerimos mejoras para tu código, ayudándote a mantener los más altos estándares de calidad.",
+                "Detalle de la persona y responsabilidades que lleva a cabo dentro de la empresa",
             source: ''
         },
     ]

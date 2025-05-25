@@ -1,0 +1,21 @@
+---
+import { NumberTicker } from "./magicui/number-ticker";
+import blinker from "@/styles/blinker.module.css"
+
+type TiecketItemProps = {
+    text:string,
+    value: number
+}
+
+
+const { text, value} = Astro.props as TiecketItemProps
+
+---
+
+<div class={`flex flex-col justify-center ${blinker.semibold}`}>
+    <div class="flex mb-3 justify-center space-x-3">
+        <span class={`text-white text-7xl`}>+</span>
+        <NumberTicker value={value} client:load />
+    </div>
+    <span class={`mx-auto text-2xl text-white ${blinker.regular} text-center `} >{text}</span>
+</div>

@@ -1,0 +1,57 @@
+---
+import Container from "./Container.astro";
+import blinker from "@/styles/blinker.module.css";
+import { RingProgress } from "@/components/RingProgress";
+import CompetenciaCard from "./CompetenciaCard.astro";
+import { type Competencias } from "@/types/Competencias"
+
+
+const competencias_data: Competencias[]= [
+    {
+        text: "Administración pública",
+    },
+    {
+        text: "Contabilidad",
+    },
+    {
+        text: "Tecnologias",
+    },
+    {
+        text: "Derecho fiscal",
+    },
+
+]
+
+
+
+
+
+---
+
+<section class="max-w-7xl mx-auto">
+    <Container>
+        <div class="flex">
+            <div class="content-center w-2/4 py-20 px-10">
+                <h1 class={` ${blinker.semibold} text-7xl text-white`}>
+                    Competencias
+                </h1>
+                <p class={` ${blinker.regular} text-xl text-white w-3/4 mt-5`}>
+                    Conocemos el valor de tu tiempo, por eso nuestros servicios
+                    son otorgados por profesionales certificados bajo los
+                    mayores estándares de calidad.
+                </p>
+            </div>
+            <div class="content-center w-2/4 grid grid-cols-2">
+                {
+                    competencias_data.map(({text}) => (
+                        <CompetenciaCard
+                            text={text}
+                            client:load
+                        />
+                    ))
+                }
+                
+            </div>
+        </div>
+    </Container>
+</section>

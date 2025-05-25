@@ -2,6 +2,14 @@
 import Container from "./Container.astro";
 import SolucionesCard from "./SolucionesCard.astro";
 import blinker from "@/styles/blinker.module.css";
+import Search from "@/icons/Search.astro";
+import Book from "@/icons/Book.astro";
+import Config from "@/icons/Config.astro";
+import FileDollar from "@/icons/FileDollar.astro";
+import Users from "@/icons/Users.astro";
+import Ticket from "@/icons/Ticket.astro";
+import Law from "@/icons/Law.astro";
+
 
 import { type Soluciones } from "@/types/soluciones";
 
@@ -9,55 +17,71 @@ const solucionesData: Soluciones[] = [
     {
         titulo: "Consultoría en Administración",
         descripcion: "",
+        component: Search,
     },
     {
         titulo: "Contabilidad General",
         descripcion: "",
+        component: Book,
     },
     {
         titulo: "Auditoríá",
         descripcion: "",
+        component: Config
     },
     {
         titulo: "Capacitación",
         descripcion: "",
+        component: Users
     },
     {
         titulo: "Impuestos",
         descripcion: "",
+        component:FileDollar
     },
     {
         titulo: "Asesoría Contable y Fiscal",
         descripcion: "",
+        component: Ticket
     },
     {
         titulo: "Servicios de Cobranza",
         descripcion: "",
+        component: Search
     },
     {
         titulo: "Ley de Acrchivo",
         descripcion: "",
+        component: Law
     },
 ];
 ---
 
+<section  class={`max-w-7xl mx-auto`}>
     <Container idSection="#Nosotros">
         <div class="px-10 py-20">
             <h1
-            class={`${blinker.semibold} mb-5 text-3xl lg:text-7xl text-center text-white`}
-        >
-            Nuestras soluciones
-        </h1>
-        <p class={`${blinker.regular} text-white text-2xl text-center mb-10`}>
-            Te ofrecemos soluciones integrales adapstadas a las necesidades de
-            tu empresa o negocio
-        </p>
-        <div class="grid grid-cols-4 gap-5">
-            {
-                solucionesData.map(({ titulo, descripcion }) => (
-                    <SolucionesCard titulo={titulo} descripcion={descripcion} />
-                ))
-            }
-        </div>
+                class={`${blinker.semibold} mb-5 text-3xl lg:text-7xl text-center text-white`}
+            >
+                Nuestras soluciones
+            </h1>
+            <p
+                class={`${blinker.regular} text-white text-2xl text-center mb-10`}
+            >
+                Te ofrecemos soluciones integrales adapstadas a las necesidades
+                de tu empresa o negocio
+            </p>
+            <div class="grid grid-cols-4 gap-5">
+                {
+                    solucionesData.map(({ titulo, descripcion, component }) => (
+                        <SolucionesCard
+                            titulo={titulo}
+                            descripcion={descripcion}
+                            icon={component}
+                        />
+                    ))
+                }
+            </div>
         </div>
     </Container>
+</section>

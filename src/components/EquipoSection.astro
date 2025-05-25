@@ -4,12 +4,15 @@ import blinker from "@/styles/blinker.module.css";
 import { ScrollContainer } from "@/components/ScrollContainer";
 ---
 
-<Container idSection="#Equipo">
-    <div class="px-10 py-20">
-         <h1 class={`text-7xl ${blinker.semibold} text-center text-white`}>
-            Nuestro equipo de trabajo
-        </h1>
+<section class="max-w-7xl mx-auto">
+    <Container idSection="#Equipo">
+        <div class="px-10 py-20">
+            <h1 class={`text-7xl ${blinker.semibold} text-center text-white`}>
+                Nuestro equipo de trabajo
+            </h1>
+            <p class={`${blinker.regular} text-xl text-white text-center mt-5`}>Conce a cada uno de nuestro integrates</p>
 
-        <ScrollContainer client:load />
-    </div>
-</Container>
+            <ScrollContainer client:load />
+        </div>
+    </Container>
+</section>

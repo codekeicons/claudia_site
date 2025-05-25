@@ -4,5 +4,5 @@ export type Soluciones = {
 
     titulo: string,
     descripcion: string
-    // component: AstroComponentFactory
+    component: AstroComponentFactory
 }

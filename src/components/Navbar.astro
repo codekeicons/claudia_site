@@ -27,8 +27,8 @@ const dataItems: itemNavbar[] = [
         <div class="flex justify-end space-x-10 px-10 items-center bg-black/30 backdrop-blur-md w-3/5 h-24">
             <ul class="flex text-white text-lg items-center space-x-10">
                 {
-                    dataItems.map(item => (
-                        <li> <ItemNavbar path={item.path} text={item.text}/> </li>
+                    dataItems.map(({text, path}) => (
+                        <li> <ItemNavbar path={path} text={text}/> </li>
                     ))
                 }
 
