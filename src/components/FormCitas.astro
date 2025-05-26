@@ -1,0 +1,11 @@
+---
+import TabsItems from "./TabsItems.astro";
+import {TabsContainer} from "@/components/TabsContainer";
+
+---
+
+<a class="content-center mt-5">
+    <div class="flex space-x-3 p-3 bg-gray-100 rounded-lg w-full">
+        <TabsContainer client:load/>
+    </div>
+</a>

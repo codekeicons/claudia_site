@@ -2,6 +2,9 @@
 import blinker from "@/styles/blinker.module.css";
 import libre from "@/styles/librebo.module.css";
 import { BoxReveal } from "./magicui/box-reveal";
+import { ButtonForm } from "./ButtonForm";
+import FormCitas from "./FormCitas.astro";
+
 ---
 
 <section class="h-[100vh]">
@@ -17,7 +20,6 @@ import { BoxReveal } from "./magicui/box-reveal";
                     >
                 </h1>
 
-
                 <h4
                     class={`text-white my-10 md:xl 2xl:text-2xl ${blinker.light}`}
                 >
@@ -28,13 +30,18 @@ import { BoxReveal } from "./magicui/box-reveal";
                 </h4>
 
                 <BoxReveal client:load>
-                    <a
-                        href=""
-                        class={`text-white  bg-black ${blinker.regular} px-8 py-3 rounded`}
-                    >Conocer mas
-                    </a>
-                </BoxReveal
-                >
+                    <div class="flex space-x-3 items-center">
+                        <a
+                            href=""
+                            class={`text-white border-3  border-[#111111] ${blinker.regular} px-8 py-3 rounded`}
+                            >Conocer mas
+                        </a>
+                        <ButtonForm client:load>
+                            <FormCitas/>
+                        </ButtonForm>
+                    </div>
+                </BoxReveal>
+
             </div>
         </div>
         <div

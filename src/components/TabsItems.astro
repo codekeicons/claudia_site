@@ -1,0 +1,22 @@
+
+---
+
+import blinker from "@/styles/blinker.module.css"
+
+
+type TabsItemsProps = {
+    text: string
+}
+
+
+const { text } = Astro.props as TabsItemsProps
+
+---
+
+
+<div class={`bg-black p-3 w-full text-center text-white rounded-lg ${blinker.semibold}`}>
+    {text}
+</div>
+
+
+
