@@ -2,20 +2,17 @@
 import blinker from "@/styles/blinker.module.css";
 import Container from "./Container.astro";
 import Check from "@/icons/Check.astro";
-// import TextReveal  from "@/components/magicui/TextReveal";
-import { TextReveal } from "@/components/magicui/text-reveal";
-// import TextRevealC from "./TextRevealC.astro";
 ---
 
 <section class="max-w-7xl mx-auto">
-    <Container idSection="#Nosotros">
+    <Container idSection="Nosotros">
         <div class="bg-[#0c0b0b]">
-            <div class="flex justify-between w-full items-center">
-                <div class="content-center w-2/4 py-20 px-10">
-                    <h1 class={`${blinker.semibold} text-7xl mb-10 text-white`}>
+            <div class="flex flex-wrap lg:flex-nowrap justify-between w-full items-center">
+                <div class="content-center w-full lg:w-2/4 py-20 px-10">
+                    <h1 class={`${blinker.semibold} text-5xl md:text-7xl mb-10 text-white`}>
                         ¿Quienes somos? 
                     </h1>
-                    <p class={`${blinker.light}  text-[18px] text-white`}>
+                    <p class={`${blinker.light} text-md md:text-[18px] text-white`}>
                         Somos un despacho orgullosamente regiomontano
                         comprometido y dedicado con cada uno de nuestros
                         clientes con el objetivo de ofrecer servicios de
@@ -23,7 +20,7 @@ import { TextReveal } from "@/components/magicui/text-reveal";
                     </p>
 
                     <ul
-                        class={`text-white my-10 text-2xl space-y-5 ml-10 ${blinker.semibold}`}
+                        class={`text-white my-10 text-lg md:text-2xl space-y-5 ml-10 ${blinker.semibold}`}
                     >
                         <li class="flex items-center space-x-3">
                             <Check />
@@ -39,7 +36,7 @@ import { TextReveal } from "@/components/magicui/text-reveal";
                         </li>
                     </ul>
 
-                    <p class={`${blinker.light} text-[18px] text-white`}>
+                    <p class={`${blinker.light} text-md md:text-[18px] text-white`}>
                         con una respuesta inmediata a sus necesidades, con
                         excelente servicio, calidad y reduciendo sus costos
                         operativos contando con herramientas de tecnología de
@@ -49,10 +46,10 @@ import { TextReveal } from "@/components/magicui/text-reveal";
                     </p>
                 </div>
 
-                <div class="w-2/4 bg-cover h-full">
+                <div class="w-full lg:w-2/4 bg-cover  lg:h-full">
                     <img
                         src="src/assets/img/monterrey.jpg"
-                        class="h-full"
+                        class=":h-full w-full lg:w-auto"
                         alt=""
                     />
                 </div>

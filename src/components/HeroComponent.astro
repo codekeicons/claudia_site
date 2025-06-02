@@ -7,12 +7,12 @@ import FormCitas from "./FormCitas.astro";
 
 ---
 
-<section class="h-[100vh]">
+<section class="h-[100vh]" id="Inicio">
     <div class="flex justify-between items-center">
-        <div class="w-2/5">
-            <div class="max-w-7xl content-center mx-auto px-10">
+        <div class="w-full lg:w-2/5">
+            <div class="max-w-7xl content-center mx-auto px-5 md:px-10">
                 <h1
-                    class={`text-white md:text-6xl 2xl:text-7xl font-bold ${libre.bold}`}
+                    class={`text-white text-5xl 2xl:text-7xl font-bold ${libre.bold}`}
                 >
                     <BoxReveal client:load>
                         Soluciones contables <br /> y profesionales <br /> para tu
@@ -30,12 +30,12 @@ import FormCitas from "./FormCitas.astro";
                 </h4>
 
                 <BoxReveal client:load>
-                    <div class="flex space-x-3 items-center">
-                        <a
+                    <div class="flex flex-wrap xl:flex-nowrap space-x-3 space-y-3 xl:space-y-0 items-center">
+                        <!-- <a
                             href=""
-                            class={`text-white border-3  border-[#111111] ${blinker.regular} px-8 py-3 rounded`}
+                            class={`text-white border-3  text-center border-[#111111] ${blinker.regular} px-8 py-3 rounded`}
                             >Conocer mas
-                        </a>
+                        </a> -->
                         <ButtonForm client:load>
                             <FormCitas/>
                         </ButtonForm>
@@ -45,7 +45,7 @@ import FormCitas from "./FormCitas.astro";
             </div>
         </div>
         <div
-            class="w-3/5 h-[100vh] bg-[url('public/img/bg-hero_.jpg')] bg-cover bg-white"
+            class=" lg:w-3/5 h-[100vh] bg-[url('public/img/bg-hero_.jpg')] bg-cover bg-white"
         >
         </div>
     </div>

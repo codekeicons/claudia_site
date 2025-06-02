@@ -197,10 +197,10 @@ export const ScrollContainer = () => {
                                     transition={{ duration: 0.5 }}
                                     className="space-y-6"
                                 >
-                                    <div className="flex items-center space-x-32">
+                                    <div className="flex flex-wrap space-y-28 xl:space-y-0 xl:flex-nowrap items-center  space-x-0 xl:space-x-32">
                                         <div className="pl-10">
-                                            <h2 className={`text-5xl mb-5 font-bold ${blinker.semibold}`}>{textSections[currentSection].persona}</h2>
-                                            <p className={`text-xl max-w-2xl ${blinker.light}`}>{textSections[currentSection].description}</p>
+                                            <h2 className={`text-2xl lg:text-5xl mb-5 font-bold ${blinker.semibold}`}>{textSections[currentSection].persona}</h2>
+                                            <p className={`text-sm lg:text-xl max-w-2xl ${blinker.light}`}>{textSections[currentSection].description}</p>
                                         </div>
 
                                         <AvatarPulse source={textSections[currentSection].source}/>

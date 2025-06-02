@@ -58,20 +58,20 @@ const solucionesData: Soluciones[] = [
 ---
 
 <section  class={`max-w-7xl mx-auto`}>
-    <Container idSection="#Nosotros">
+    <Container idSection="ServIcios">
         <div class="px-10 py-20">
             <h1
-                class={`${blinker.semibold} mb-5 text-3xl lg:text-7xl text-center text-white`}
+                class={`${blinker.semibold} mb-5 text-5xl md:text-7xl lg:text-7xl text-center text-white`}
             >
                 Nuestras soluciones
             </h1>
             <p
-                class={`${blinker.regular} text-white text-2xl text-center mb-10`}
+                class={`${blinker.regular} text-white text-lg md:ext-2xl text-center mb-10`}
             >
                 Te ofrecemos soluciones integrales adapstadas a las necesidades
                 de tu empresa o negocio
             </p>
-            <div class="grid grid-cols-4 gap-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5">
                 {
                     solucionesData.map(({ titulo, descripcion, component }) => (
                         <SolucionesCard

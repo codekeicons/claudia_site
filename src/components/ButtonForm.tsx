@@ -35,7 +35,7 @@ export const ButtonForm = ({ children }: { children: React.ReactNode }) => {
                 className={`rounded bg-white ${blinker.semibold}  py-3 px-8 text-black cursor-pointer *: focus:outline-none `}
                 aria-label="Abrir menú"
             >
-                Agendar/Consultar cita
+                Solicita tu cotizción
                 {/* <Menu size={24} /> */}
             </button>
 
@@ -52,10 +52,10 @@ export const ButtonForm = ({ children }: { children: React.ReactNode }) => {
                 {/* Fixed Header */}
                 <div className="flex justify-between items-center p-6 border-b">
                     <div>
-                        <h2 className={`text-7xl font-bold ${blinker.semibold}`}>Agendar una cita</h2>
-                        <p className={` w-3/4 text-lg ${blinker.regular} mt-5`}>Agenda y registra tu cita para que unos de nuestros asesores expertos pueda asesorarte de acuerdo a las necesidades
+                        <h2 className={`text-7xl font-bold ${blinker.semibold}`}>Solitar cotización</h2>
+                        {/* <p className={` w-3/4 text-lg ${blinker.regular} mt-5`}>Agenda y registra tu cita para que unos de nuestros asesores expertos pueda asesorarte de acuerdo a las necesidades
                             que requiere tu empresa o negocio
-                        </p>
+                        </p> */}
                     </div>
                     <button onClick={togglePanel} className="rounded-full p-1 hover:bg-gray-100" aria-label="Cerrar menú">
                         <X size={24} />

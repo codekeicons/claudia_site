@@ -2,55 +2,32 @@
 import librebo from "@/styles/librebo.module.css";
 import ItemNavbar from "./ItemNavbar.astro";
 import { type itemNavbar } from "@/interfaces/itemNavbar";
-import { ButtonForm } from "@/components/ButtonForm";
+import Logo from "./Logo.astro";
 
-import blinker from "@/styles/blinker.module.css";
-
-import Container from "@/components/Container.astro";
 
 const dataItems: itemNavbar[] = [
-    { path: "#incio", text: "Inicio" },
-    { path: "#servciios", text: "Servicios" },
-    { path: "#nosotros", text: "Nosotros" },
-    { path: "#contacto", text: "Contacto" },
+    { path: "#Inicio", text: "Inicio" },
+    { path: "#ServIcios", text: "Servicios" },
+    { path: "#Nosotros", text: "Nosotros" },
+    { path: "#Contacto", text: "Contacto" },
 ];
 ---
 
 <nav class="h-24 fixed w-full z-50">
-    <div class="flex w-full items-center justify-between">
+    <div class="flex flex-wrap  md:flex-nowrap w-full items-center justify-between">
         <!--FLEX CONTAINER 1 -->
-        <div class="w-2/5 bg-[#0c0b0b] px-5 flex items-center h-24">
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="70"
-                height="70"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="icon icon-tabler text-white icons-tabler-outline icon-tabler-brand-codesandbox"
-                ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-                    d="M20 7.5v9l-4 2.25l-4 2.25l-4 -2.25l-4 -2.25v-9l4 -2.25l4 -2.25l4 2.25z"
-                ></path><path d="M12 12l4 -2.25l4 -2.25"></path><path
-                    d="M12 12l0 9"></path><path d="M12 12l-4 -2.25l-4 -2.25"
-                ></path><path d="M20 12l-4 2v4.75"></path><path
-                    d="M4 12l4 2l0 4.75"></path><path d="M8 5.25l4 2.25l4 -2.25"
-                ></path></svg
-            >
-
-            <span class={`text-white text-3xl ${librebo.bold}`}>Logo</span>
+        <div class="w-full md:w-2/5 bg-[#0c0b0b] px-5 flex items-center h-24">
+            <Logo/>
         </div>
 
         <!--FLEX CONTAINER 2 -->
         <div
-            class="flex justify-end space-x-10 px-10 items-center bg-black/30 backdrop-blur-md w-3/5 h-24"
+            id="navMenus" class="flex justify-normal md:justify-end space-x-10 px-10 items-center bg-[#0c0b0b] lg:bg-black/50 md:backdrop-blur-md w-full  md:w-3/5 h-52 md:h-24 transition-all transform duration-200"
         >
-            <ul class="flex z-40 text-white text-lg items-center space-x-10">
+            <ul class="flex flex-wrap md:flex-nowrap z-40 text-white text-lg items-center space-x-10">
                 {
                     dataItems.map(({ text, path }) => (
-                        <li>
+                        <li class="w-full md:w-auto">
                             <ItemNavbar path={path} text={text} />{" "}
                         </li>
                     ))
@@ -61,7 +38,39 @@ const dataItems: itemNavbar[] = [
                 Agendar/consultar cita
             </a> -->
         </div>
-
-        <!--FLEX CONTAINER 3 -->
     </div>
 </nav>
+
+
+<script>
+
+
+    document.addEventListener("DOMContentLoaded", function(){
+
+        const navMenus = document.getElementById("navMenus") as HTMLElement; /* Evitamos que navMenus posiblemente sea
+        nulo con HTMLElement */
+
+        window.addEventListener("scroll", function(){
+
+            if(window.scrollY > 50){
+
+                navMenus.classList.add('bg-[#0c0b0b]');
+                navMenus.classList.remove('lg:bg-black/50', 'md:backdrop-blur-md');
+            } else {
+                navMenus.classList.remove('bg-[#0c0b0b]');
+                navMenus.classList.add('lg:bg-black/50', 'md:backdrop-blur-md');
+            }
+        })
+
+        window.addEventListener("load", function(){
+
+            if(window.scrollY > 50){
+
+                navMenus.classList.add('bg-[#0c0b0b]');
+                navMenus.classList.remove('lg:bg-black/50', 'md:backdrop-blur-md')
+            }
+
+        })
+
+    })
+</script>

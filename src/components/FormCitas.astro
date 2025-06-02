@@ -1,11 +1,51 @@
 ---
-import TabsItems from "./TabsItems.astro";
-import {TabsContainer} from "@/components/TabsContainer";
+
+import blinker from "@/styles/blinker.module.css";
+import Alerta from "@/icons/Alerta.astro"
+
 
 ---
 
-<a class="content-center mt-5">
-    <div class="flex space-x-3 p-3 bg-gray-100 rounded-lg w-full">
-        <TabsContainer client:load/>
+<div class="max-w-7xl mx-auto px-5">
+    <form>
+        <div class="flex flex-col space-y-5 items-center">
+            <div class="flex space-x-3 w-full">
+                <div class="flex flex-col w-2/4 space-y-2">
+                    <span class={`text-md text-black ${blinker.regular}`}
+                        >Nombre</span
+                    >
+                    <input type="text" class="border h-10 bg-gray-100 px-3" />
+                </div>
+                <div class="flex flex-col w-2/4 space-y-2">
+                    <span class={`text-md text-black ${blinker.regular}`}
+                        >Correo</span
+                    >
+                    <input type="text" class="border h-10 bg-gray-100 px-3" />
+                </div>
+            </div>
+            <div class="flex flex-col w-full space-y-2">
+                <span class={`text-md text-black ${blinker.regular}`}
+                    >Asunto</span
+                >
+                <input type="text" class="border h-10 bg-gray-100 px-3" />
+            </div>
+            <div class="flex flex-col w-full space-y-2">
+                <span class={`text-md text-black ${blinker.regular}`}
+                    >Mensaje</span
+                >
+                <textarea class="border h-56 bg-gray-100 px-3 py-5"></textarea>
+            </div>
+            <button
+                class={`bg-black py-3 px-8 self-start rounded text-lg text-white ${blinker.regular}`}
+                >Enviar correo</button
+            >
+        </div>
+    </form>
+
+    <div class="flex items-center space-x-5 content-center bg-emerald-400 text-white rounded p-5 mt-20">
+        <Alerta/>
+        <p class={`${blinker.regular} text-lg`}>
+            En caso de no recibir alguna respuesta al correo indicado, favor de comuincarto a unos de nuestro contectos para que uno de nuestro asesores pueda a atenderte.
+        </p>
     </div>
-</a>
+</div>
