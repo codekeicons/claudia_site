@@ -1,7 +1,7 @@
 ---
 import { RingProgress } from "./RingProgress";
 import blinker from "@/styles/blinker.module.css"
-
+import { BarProgress } from "./BarProgress";
 
 type CompetenciaCardProps = {
 
@@ -16,7 +16,8 @@ const { text } = Astro.props as CompetenciaCardProps;
     class="border content-center bg-[#0c0b0b] p-10 border-[#111111] h-full w-full"
 >
     <div class="flex flex-col justify-center">
-        <RingProgress client:load />
+        <BarProgress client:visible/>
+        <!-- <RingProgress client:load /> -->
 
         <span class={` ${blinker.semibold} text-center mt-5 text-xl text-white`}
             >{text}</span

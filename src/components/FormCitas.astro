@@ -1,51 +1,99 @@
 ---
-
 import blinker from "@/styles/blinker.module.css";
-import Alerta from "@/icons/Alerta.astro"
+import Alerta from "@/icons/Alerta.astro";
+import { sendEmail } from "@/application/services/resend.mail";
+import type { Destinatarios } from "@/types/destinatarios";
+import { fade } from "astro:transitions";
+
+export const prerender = false
+
+let id = null
+let error = null
+
+
+if(Astro.request.method === "POST"){
+
+    const formData = await Astro.request.formData();
+
+    const nombre = formData.get("nombre")
+    const correo = formData.get("correo")
+    const asunto = formData.get("asunto")
+    const mensaje = formData.get("mensaje")
+
+    const email: Destinatarios = {
+        Nombre: nombre as string,
+        Correo: correo as string,
+        Asunto: asunto as string,
+        Mensaje: mensaje as string
+    }
+
+    const result = await sendEmail(email)
+
+    id = result.id ?? ""
+    error = result.error?? ""
+
+}
 
 
 ---
 
 <div class="max-w-7xl mx-auto px-5">
-    <form>
+    <form method="POST" enctype="application/x-www-form-urlencoded">
         <div class="flex flex-col space-y-5 items-center">
             <div class="flex space-x-3 w-full">
                 <div class="flex flex-col w-2/4 space-y-2">
                     <span class={`text-md text-black ${blinker.regular}`}
                         >Nombre</span
                     >
-                    <input type="text" class="border h-10 bg-gray-100 px-3" />
+                    <input type="text" class="border h-10 bg-gray-100 px-3" name="nombre"/>
                 </div>
+
                 <div class="flex flex-col w-2/4 space-y-2">
                     <span class={`text-md text-black ${blinker.regular}`}
                         >Correo</span
                     >
-                    <input type="text" class="border h-10 bg-gray-100 px-3" />
+                    <input type="text" class="border h-10 bg-gray-100 px-3" name="correo" />
                 </div>
             </div>
+
             <div class="flex flex-col w-full space-y-2">
                 <span class={`text-md text-black ${blinker.regular}`}
                     >Asunto</span
                 >
-                <input type="text" class="border h-10 bg-gray-100 px-3" />
+                <input type="text" class="border h-10 bg-gray-100 px-3" name="asunto"/>
             </div>
+
             <div class="flex flex-col w-full space-y-2">
                 <span class={`text-md text-black ${blinker.regular}`}
                     >Mensaje</span
                 >
-                <textarea class="border h-56 bg-gray-100 px-3 py-5"></textarea>
+                <textarea class="border h-56 bg-gray-100 px-3 py-5" name="mensaje"></textarea>
             </div>
-            <button
-                class={`bg-black py-3 px-8 self-start rounded text-lg text-white ${blinker.regular}`}
+
+            <button type="submit"
+                class={`bg-black py-3 px-8 self-start rounded cursor-pointer text-lg text-white ${blinker.regular}`}
                 >Enviar correo</button
             >
+            <!-- {id && (
+
+                <p>El correo se ha enviado correctamente</p>
+            )}
+
+            {error && (
+                <p>{error}</p>
+            )} -->
+
         </div>
     </form>
 
-    <div class="flex items-center space-x-5 content-center bg-emerald-400 text-white rounded p-5 mt-20">
-        <Alerta/>
+    <div
+        class="flex items-center space-x-5 content-center bg-emerald-400 text-white rounded p-5 mt-20"
+    >
+        <Alerta />
         <p class={`${blinker.regular} text-lg`}>
-            En caso de no recibir alguna respuesta al correo indicado, favor de comuincarto a unos de nuestro contectos para que uno de nuestro asesores pueda a atenderte.
+            En caso de no recibir alguna respuesta al correo indicado, favor de
+            comuincarto a unos de nuestro contectos para que uno de nuestro
+            asesores pueda a atenderte.
         </p>
     </div>
 </div>
