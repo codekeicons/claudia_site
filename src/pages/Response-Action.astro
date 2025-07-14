@@ -1,0 +1,23 @@
+---
+import ResponseAction from "@/components/pages/Response-Action.astro"
+import Layout from "@/layouts/Layout.astro"
+
+
+const url = new URL(Astro.request.url)
+
+//RECIBIMOS LOS PAREMETR QUE ENVIARMOS EN LA REDIRECCION A NUESTRA PAGINA
+const id = url.searchParams.get("id")
+const error = url.searchParams.get("error")
+const correo = url.searchParams.get("correo")
+
+---
+
+
+<Layout>
+    <ResponseAction
+        id={id}
+        error={error}
+        correo={correo}
+    />
+</Layout>
+

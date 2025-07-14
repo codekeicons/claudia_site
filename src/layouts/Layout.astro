@@ -1,7 +1,12 @@
 ---
+import type { GetStaticPaths } from "astro";
 import "../styles/global.css";
 import Navbar from "@/components/Navbar.astro";
 import Footer from "@/components/Footer.astro";
+import { pathHasLocale } from "astro:i18n";
+
+const path = Astro.url.pathname;
+console.log(path);
 ---
 
 <!doctype html>
@@ -16,13 +21,13 @@ import Footer from "@/components/Footer.astro";
 		<title>Astro Basics</title>
 	</head>
 	<body class="bg-[#0c0b0b] z-40">
-		<Navbar />
+		{path !== "/Response-Action" ? <Navbar /> : null}
 
 		<main>
 			<slot />
 		</main>
 
-		<Footer />
+		{path !== "/Response-Action" ? <Footer /> : null}
 	</body>
 </html>
 

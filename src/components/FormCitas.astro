@@ -3,38 +3,50 @@ import blinker from "@/styles/blinker.module.css";
 import Alerta from "@/icons/Alerta.astro";
 import { sendEmail } from "@/application/services/resend.mail";
 import type { Destinatarios } from "@/types/destinatarios";
-import { fade } from "astro:transitions";
 
-export const prerender = false
+export const prerender = false;
 
-let id = null
-let error = null
+let id = null;
+let error = null;
+let destinatario = null;
 
-
-if(Astro.request.method === "POST"){
-
+if (Astro.request.method === "POST") {
     const formData = await Astro.request.formData();
 
-    const nombre = formData.get("nombre")
-    const correo = formData.get("correo")
-    const asunto = formData.get("asunto")
-    const mensaje = formData.get("mensaje")
+    const nombre = formData.get("nombre");
+    const correo = formData.get("correo");
+    const asunto = formData.get("asunto");
+    const mensaje = formData.get("mensaje");
 
     const email: Destinatarios = {
         Nombre: nombre as string,
         Correo: correo as string,
         Asunto: asunto as string,
-        Mensaje: mensaje as string
-    }
+        Mensaje: mensaje as string,
+    };
 
-    const result = await sendEmail(email)
+    const result = await sendEmail(email);
 
-    id = result.id ?? ""
-    error = result.error?? ""
+    id = result.id;
+    error = result.error;
+    destinatario = email.Correo;
 
+    // console.log(result);
+
+    
+
+
+
+    /* NOTA: Las redirecciones solo se puede usar dentro de componentes a nivel de pagin src/pages
+    
+    
+    Verifica si es posible redireccionar a nivel de componentes
+    */
+
+
+
+    return Astro.redirect(`/Response-Action?id=${encodeURIComponent(id?? "")}&error${error?? ""}&correo${destinatario?? ""}`);
 }
-
-
 ---
 
 <div class="max-w-7xl mx-auto px-5">
@@ -45,14 +57,22 @@ if(Astro.request.method === "POST"){
                     <span class={`text-md text-black ${blinker.regular}`}
                         >Nombre</span
                     >
-                    <input type="text" class="border h-10 bg-gray-100 px-3" name="nombre"/>
+                    <input
+                        type="text"
+                        class="border h-10 bg-gray-100 px-3"
+                        name="nombre"
+                    />
                 </div>
 
                 <div class="flex flex-col w-2/4 space-y-2">
                     <span class={`text-md text-black ${blinker.regular}`}
                         >Correo</span
                     >
-                    <input type="text" class="border h-10 bg-gray-100 px-3" name="correo" />
+                    <input
+                        type="text"
+                        class="border h-10 bg-gray-100 px-3"
+                        name="correo"
+                    />
                 </div>
             </div>
 
@@ -60,17 +80,28 @@ if(Astro.request.method === "POST"){
                 <span class={`text-md text-black ${blinker.regular}`}
                     >Asunto</span
                 >
-                <input type="text" class="border h-10 bg-gray-100 px-3" name="asunto"/>
+                <input
+                    type="text"
+                    class="border h-10 bg-gray-100 px-3"
+                    name="asunto"
+                />
             </div>
 
             <div class="flex flex-col w-full space-y-2">
                 <span class={`text-md text-black ${blinker.regular}`}
                     >Mensaje</span
                 >
-                <textarea class="border h-56 bg-gray-100 px-3 py-5" name="mensaje"></textarea>
+                <textarea
+                    class="border h-56 bg-gray-100 px-3 py-5"
+                    name="mensaje"></textarea>
             </div>
 
-            <button type="submit"
+            <button
+                type="submit"
+                id="#btn-send"
+                data-id={id}
+                data-error={error}
+                data-correo={destinatario}
                 class={`bg-black py-3 px-8 self-start rounded cursor-pointer text-lg text-white ${blinker.regular}`}
                 >Enviar correo</button
             >
@@ -82,7 +113,6 @@ if(Astro.request.method === "POST"){
             {error && (
                 <p>{error}</p>
             )} -->
-
         </div>
     </form>
 
@@ -97,3 +127,20 @@ if(Astro.request.method === "POST"){
         </p>
     </div>
 </div>
+
+<!-- <script>
+    const btnEnviar = document.querySelector("#btn-send") as HTMLElement;
+
+    const id = btnEnviar.dataset.id;
+    const error = btnEnviar.dataset.error;
+    const correo = btnEnviar.dataset.correo;
+
+    const params = new URLSearchParams({
+        id: id?? "" ,
+        error: error?? "" ,
+        correo: correo?? ""
+
+    });
+
+    window.location.href = `/Response-Action?${params.toString()}`;
+</script> -->
